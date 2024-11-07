@@ -4,6 +4,7 @@ public class Doctor {
     String name;
     String speciality;
     int yearOfExperience;
+
     public void info(){
         System.out.printf("Меня зовут %s, моя специальность %s, мой опыт работы составляет %d лет \n", name, speciality, yearOfExperience);
     }

@@ -14,6 +14,7 @@ public class Task1 {
 
     }// End main
     public static int sumOfEvenNumbers(int[]array) {
+        if (array == null) return 0;
 
         int sum = 0;
 
