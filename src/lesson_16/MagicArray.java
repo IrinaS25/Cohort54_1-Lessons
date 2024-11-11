@@ -108,19 +108,15 @@ public String toString() {
     }
     return result;
 }
-    int indexOf(int value){
-        for (int i = 0; i < cursor - 1; i++) {
-            if (array[i] == value) {
-                return i;
 
-            }
-        }
-        return -1;
+    }
 
 
 
 
-}}
+
+
+
 
 
 /*

@@ -29,7 +29,9 @@ public class ArrayApp {
         System.out.println("size: " + magicArray.size());
         System.out.println(magicArray.toString());
 
-        System.out.println(magicArray.indexOf(900));
+
+
+
 
 
     }
