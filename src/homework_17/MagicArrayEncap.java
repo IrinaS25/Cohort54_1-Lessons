@@ -25,6 +25,7 @@ public class MagicArrayEncap {
 
     }
 
+
     // Добавление в массив одного элемента
     public void add(int value) {
 
@@ -145,7 +146,6 @@ public class MagicArrayEncap {
         for (int i = cursor -1; i >= 0; i--) {
             if (array[i] == value) {
 
-
                 return i;
             }
         }
@@ -154,9 +154,12 @@ public class MagicArrayEncap {
 
     //  возвращает все значения в виде обычного массива
     public int[] toArray() {
-        // Todo Homework
+        int [] result = new int[cursor];
+        for (int i = 0; i < cursor; i++){
+            result[i] = array [i];
+        }
 
-        return null;
+        return result;
     }
 
     // Удаление элемента по значению
@@ -180,7 +183,7 @@ public class MagicArrayEncap {
     }
 
     // Замена значения по индексу - возвращает старое значение
-    int set(int index, int newValue) {
+    public int set(int index, int newValue) {
         /*
         1. Валидация индекса 0...cursor
         2. Вытащить старое значение - запомнить
