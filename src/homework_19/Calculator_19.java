@@ -14,7 +14,19 @@ Copy
 - Методы для вычисления длины окружности и площади круга, принимающий радиус и возвращающий результат.
 - Константу (число Пи)
  */
-public class Task1 {
+public class Calculator_19 {
+    public static final double PI = 3.14159;
+
+    public static double circleArea(double radius) {
+        // PI * r ^ 2.
+        return  PI * radius * radius;
+    }
+
+    public static double circlePerimeter(double radius) {
+        // 2 * PI * r -> Pi * d (диаметр)
+        return 2 * PI * radius;
+    }
+
     public static double add(double a, double b) {
         return a + b;
     }
@@ -40,7 +52,6 @@ public class Task1 {
         }
         return a / b;
     }
-
 
 
 }

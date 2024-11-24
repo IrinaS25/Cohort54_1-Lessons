@@ -38,19 +38,31 @@ Task 1
 •	Установите цвет для каждой фигуры и выведите эту информацию в методе displayInfo().
  */
 public class Shape {
-    private  String name;
+    private String name;
     private String color;
 
-    public Shape(String name) {
+    public Shape(String name, String color) {
         this.name = name;
+        this.color = color;
+    }
 
+    public void displayInfo() {
+        System.out.println("Shape: " + name + ", color: " + color);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getColor() {
+        return color;
     }
 
     public void setColor(String color) {
         this.color = color;
-    }
-
-    public void displayInfo(String name, String color){
-        System.out.println("displayInfo: Name: " + name + "," + " color: " + color);
     }
 }
