@@ -72,7 +72,8 @@ public class Autobus {
         this.passengers = new Passenger[capacity]; // null
     }
 
-    public boolean takePassenger(Passenger passenger) {
+    public
+    boolean takePassenger(Passenger passenger) {
         /*
         Надо проверить:
         1. Есть ли свободное место
@@ -114,17 +115,72 @@ public class Autobus {
     Уменьшить кол-во пассажиров
      */
 
-    public boolean dropPassenger(Passenger passenger){
-        isPassengerInBus(passenger);
-        for (int i = counter; i < countPassengers -1; i++ ){
-            passengers[i] = passengers[i + 1];
+    public boolean dropPassenger(Passenger passenger) {
+        if (passenger == null) return false;
+
+        int index = findPassenger(passenger);
+
+        if (index == -1) {
+            // Пассажира нет в автобусе
+            System.out.printf("Пассажир с id: %d в автобусе не найден!\n", passenger.getId());
+            return false;
         }
+
+        // Пассажир найден. Его нужно высадить = удалить из списка пассажиров
+        for (int i = index + 1; i < countPassengers; i++) {
+            passengers[i - 1] = passengers[i];
+        }
+//
+//        for (int i = index;  i < countPassengers -1; i++) {
+//            passengers[i] = passengers[i + 1];
+//        }
+
+        // не обязательная строка
+        passengers[countPassengers -1] = null;
+
+        // Уменьшаем кол-во пассажиров (заодно сдвигаем наш курсор)
         countPassengers--;
 
-            System.out.printf("Пассажира с id: %d вышел из автобуса с id %d\n", passenger.getId(), this.id);
-            return true;
+        System.out.printf("Пассажир %s с id: %d вышел из автобуса\n", passenger.getName(), passenger.getId());
+        return true;
+    }
 
-}
+    private int findPassenger(Passenger passenger) {
+        for (int i = 0; i < countPassengers; i++) {
+            if (passengers[i].getId() == passenger.getId()) {
+                return i;
+            }
+        }
+
+        return -1; // пассажир не найден. Возвращаем -1
+    }
+
+
+    // Метод возвращающий список пассажиров
+    public String getPassengersList() {
+        /*
+        Перебрать всех пассажиров.
+        Склеить строку из пассажиров в едином виде (id + name)
+         */
+        StringBuilder sb = new StringBuilder("{");
+        for (int i = 0; i < countPassengers; i++) {
+            // Взять каждого пассажира и добавить инфо о нем
+            Passenger tempPass = passengers[i];
+            sb.append("Passenger: {id: ").append(tempPass.getId());
+            sb.append("; name: ").append(tempPass.getName()).append("}; ");
+        }
+
+        // Если пассажиров нет, я хочу чтоб вернулось "{}"
+//        System.out.println(sb.toString());
+        // Хочу убрать лишнюю "; " после последнего пассажира в списке
+        if (sb.length() > 1) {
+            sb.setLength(sb.length() - 2);
+        }
+
+        sb.append("}");
+
+        return sb.toString();
+    }
 
     private boolean isPassengerInBus(Passenger passenger) {
         for (int i = 0; i < countPassengers; i++) {
@@ -147,27 +203,25 @@ public class Autobus {
         this.autopilot = new Autopilot(softwareVersion);
         this.autopilot.setAutobus(this);
     }
-/*
+
     @Override
     public String toString() {
-        return "Autobus: {" +
-                "id=" + id + " , capacity=" + capacity +
-                ", driver=" + driver.toString() +
-                ", autopilot=" + autopilot.toString() +
-                '}';
+        StringBuilder sb = new StringBuilder("Autobus: {");
+        sb.append("id: ").append(id).append(", ");
+        sb.append("capacity: ").append(capacity).append(", ");
+        sb.append("driver: ").append(driver.toString()).append(", ");
+        sb.append("autopilot: ").append(autopilot.toString());
+        sb.append("}");
 
-*/
-    public  String toString() {
-        StringBuilder sb1 = new StringBuilder("Autobus: {");
-        sb1.append("id: ").append(id);
-        sb1.append(", capacity: ").append(capacity);
-        sb1.append(", driver: ").append(driver);
-        sb1.append(", autopilot: ").append(autopilot.toString());
-        sb1.append("}");
+        return sb.toString();
 
-        return sb1.toString();
-
+//        return "Autobus: {" +
+//                "id=" + id + " , capacity=" + capacity +
+//                ", driver=" + driver.toString() +
+//                ", autopilot=" + autopilot.toString() +
+//                '}';
     }
+
     public BusDriver getDriver() {
         return driver;
     }
