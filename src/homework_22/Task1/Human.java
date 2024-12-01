@@ -13,22 +13,51 @@ Task 1
  */
 
 public class Human {
+    private final int runSpeed;
+    private final int restTime;
 
-    public void run(){
+    private String typeRunner = "Человек";
 
-        System.out.println("Я бегу со скоростью 10 км/ч");
+    public Human() {
+        this.runSpeed = 10;
+        this.restTime = 15;
+    }
+
+    public Human(int runSpeed, int restTime) {
+        this.runSpeed = runSpeed;
+        this.restTime = restTime;
+    }
+
+    public void run() {
+        System.out.println(typeRunner + " бежит со скоростью " + runSpeed +  " км/ч");
         rest();
+    }
 
-        }
-        public void rest(){
-            System.out.println("Я отдыхаю 15 минут.");
+    public void rest() {
+        System.out.println(typeRunner + " нужно для отдыха " + restTime + " минут");
+    }
 
-        }
-        public String toString() {
-            return "Бегун";
-        }
+    public int getRunSpeed() {
+        return runSpeed;
+    }
 
-        }
+    public int getRestTime() {
+        return restTime;
+    }
 
+    public String getTypeRunner() {
+        return typeRunner;
+    }
 
+    public void setTypeRunner(String typeRunner) {
+        this.typeRunner = typeRunner;
+    }
 
+    @Override
+    public String toString() {
+        return "Human{" +
+                "runSpeed=" + runSpeed +
+                ", restTime=" + restTime +
+                '}';
+    }
+}
