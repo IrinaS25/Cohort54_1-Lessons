@@ -13,13 +13,25 @@ public class Triangle extends Shape{
         this.lenghtB = lenghtB;
         this.lenghtC = lenghtC;
 
+        if(!isValidSides()) {
+            System.out.println("invalid sides");
+            this.lenghtA = 3;
+            this.lenghtB = 4;
+            this.lenghtC = 5;
+
+        }
+    }
+
+    private boolean isValidSides(){
+        return  lenghtA < lenghtB + lenghtC && lenghtB < lenghtA + lenghtC && lenghtC < lenghtA + lenghtB;
+
     }
 
     @Override
     public double areaCalculate() {
         double areaT = 0.5 * lenghtA * hightH;
         System.out.printf("Площадь треугольника равна %.2f \n", areaT);
-        return 0;
+        return areaT;
     }
 
     @Override
@@ -62,5 +74,13 @@ public class Triangle extends Shape{
         this.lenghtC = lenghtC;
     }
 
-
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                "lenghtA=" + lenghtA +
+                ", hightH=" + hightH +
+                ", lenghtB=" + lenghtB +
+                ", lenghtC=" + lenghtC +
+                '}';
+    }
 }

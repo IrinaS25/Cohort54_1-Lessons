@@ -2,7 +2,6 @@ package homework_23.Task1;
 
 public class FigureApp {
         public static void main(String[] args) {
-
                 Shape[] shapes = new Shape[]{new Circle(5), new Rectangle(3, 6), new Triangle(1.1, 2.2, 3.3, 4.4)};
 
                 double totalArea = 0;

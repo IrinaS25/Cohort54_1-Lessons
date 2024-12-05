@@ -14,16 +14,30 @@ public class Rectangle extends Shape{
     public double areaCalculate() {
         double areaR = lenghtA * lenghtB;
         System.out.printf("Площадь прямоугольника равна %.2f \n", areaR);
-        return 0;
+        return areaR;
     }
 
     @Override
     public double perimeterCalculation() {
         double perR = 2 * (lenghtA + lenghtB);
         System.out.printf("Периметр прямоугольника равен %.2f \n", perR);
-        return 0;
+        return perR;
     }
 
-
+    public double getLenghtA() {
+        return lenghtA;
     }
+
+    public void setLenghtA(double lenghtA) {
+        this.lenghtA = lenghtA;
+    }
+
+    public double getLenghtB() {
+        return lenghtB;
+    }
+
+    public void setLenghtB(double lenghtB) {
+        this.lenghtB = lenghtB;
+    }
+}
 
