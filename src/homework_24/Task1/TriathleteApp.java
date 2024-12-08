@@ -14,5 +14,8 @@ public class TriathleteApp {
         triathlete.run();
         System.out.println(triathlete.toString());
         System.out.println(triathlete.getId());
+
+
+
     }
 }
