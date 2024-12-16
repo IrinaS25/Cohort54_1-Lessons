@@ -1,4 +1,7 @@
 package homework_26.Task3;
+/*
+
+ */
 
 public class NumericPairApp {
     public static void main(String[] args) {
