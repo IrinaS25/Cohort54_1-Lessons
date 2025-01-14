@@ -1,4 +1,4 @@
-package Proba;
+package proba;
 
 public class AutoPark {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Proba;
+package proba;
 
 public class Autopilot {
     private String softwareVersion;

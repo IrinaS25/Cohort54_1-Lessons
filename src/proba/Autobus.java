@@ -1,6 +1,4 @@
-package Proba;
-
-import lesson_20.transport.Bus;
+package proba;
 
 public class Autobus {
 

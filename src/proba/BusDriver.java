@@ -1,4 +1,4 @@
-package Proba;
+package proba;
 
 public class BusDriver {
     private static int idCounter = 100;

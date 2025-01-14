@@ -1,6 +1,7 @@
 package homework_24.Option;
 
 public abstract class VusaMember implements PaymentSystem {
+
     private final String currency;
 
     private double courseBTC;
@@ -12,6 +13,7 @@ public abstract class VusaMember implements PaymentSystem {
         this.balance = balance;
         this.currency = currency;
         setActualBtcCourse(currency);
+
     }
 
     public void  setActualBtcCourse(String currency) {
