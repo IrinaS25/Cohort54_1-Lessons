@@ -67,7 +67,7 @@ public class InstrumentsController {
                 double price = scanner.nextDouble();
                 scanner.nextLine();
 
-                Instrument instrument = new Instrument(name, CategoryMusicInstruments.WIND_INSTRUMENTS, price);
+                Instrument instrument = new Instrument(name, CategoryMusicInstruments.WIND, price);
                 instrumentsService.addInstrument(instrument);
                 System.out.println(instrument);
 
